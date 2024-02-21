@@ -1,7 +1,7 @@
 variable "instanceTagname" {
 
     type = string
-    default = jenkins-master
+    default = "jenkins-master"
   
 }
 
