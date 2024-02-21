@@ -4,7 +4,7 @@ output "OutputOfAMI" {
   
 }
 
-output "output of VPC-ID" {
+output "VPC-ID" {
 
        value = data.aws_vpcs.default_vpc.ids   
 }
