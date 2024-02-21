@@ -1,0 +1,27 @@
+#updates the OS
+yum update     
+
+#install docker 
+yum install docker -y
+
+#check docker version
+ docker --version
+
+#start the docker service 
+ systemctl start docker
+ systemctl status docker
+
+#install jenkins image in a docker container
+ docker run -dit -p 8080:8080 -p 50000:50000 jenkins/jenkins:lts
+
+#checking jenkins container is running
+docker ps
+
+#command to go inside jenkins container
+ docker exec -it 24e4b3cdca76 bash
+
+#this command will display jenkins password to login 
+ cat /var/jenkins_home/secrets/initialAdminPassword 
+
+#downloading centos image as a slave node on top of jenkins master container
+docker run -it --name slave centos:7
