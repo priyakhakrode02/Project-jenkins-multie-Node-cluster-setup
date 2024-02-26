@@ -26,3 +26,40 @@ OR   docker exec -it master cat /var/jenkins_home/secrets/initialAdminPassword
 
 #downloading centos image as a slave node on top of jenkins master container
 docker run -it --name slave centos:7
+
+
+#JDK link 
+#Debian based OS
+https://download.oracle.com/java/17/archive/jdk-17.0.10_linux-x64_bin.deb
+
+#RPM based OS 
+https://download.oracle.com/java/17/archive/jdk-17.0.10_linux-x64_bin.rpm
+
+#this command will download JDK from the internet using this link.
+wget  https://download.oracle.com/java/17/archive/jdk-17.0.10_linux-x64_bin.rpm
+
+#install wget to donwload jdk from the link
+yum install wget -y
+OR
+apt install wget -y
+
+#install jdk
+yum install jdk-17.0.9_linux-x64_bin.rpm -y
+
+#Run from agent command line
+curl -sO http://44.204.35.39:8080/jnlpJars/agent.jar
+java -jar agent.jar -url http://44.204.35.39:8080/ -secret 6cc574a05548c46ff93b1807c063d34779eab8cb55c3fb5e7c58ca9c15082dda -name slaveNode -workDir "/jenkins"
+
+
+vim /usr/lib/systemd/system/docker.service
+-H tcp://0.0.0.0:4243
+tcp://0.0.0.0:4243
+
+systemctl daemon-reload
+systemctl restart docker
+
+docker start master
+
+docker ps
+
+docker pull jinny1/jenkinsslave
