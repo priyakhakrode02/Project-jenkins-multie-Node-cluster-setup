@@ -22,6 +22,7 @@ docker ps
 
 #this command will display jenkins password to login 
  cat /var/jenkins_home/secrets/initialAdminPassword 
+OR   docker exec -it master cat /var/jenkins_home/secrets/initialAdminPassword
 
 #downloading centos image as a slave node on top of jenkins master container
 docker run -it --name slave centos:7
