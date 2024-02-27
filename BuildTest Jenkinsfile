@@ -1,0 +1,27 @@
+pipeline {
+    agent{
+        
+          dockerContainer 'jinny1/jenkinsslave:v1'
+    }
+
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Building'
+                git  'https://github.com/priyakhakrode02/flask-2-tier-architecture.git'
+            }
+        }
+        
+        stage('Test'){
+            steps{
+                
+                echo 'Testing...'
+                sh "python3 -m pip install --upgrade pip"
+                sh "pip3 install flake8"
+                sh "pip3 install -r requirements.txt"
+                echo "Testing Was Succesfull!"
+            }
+        }
+        
+    }
+}
