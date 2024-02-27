@@ -8,7 +8,7 @@ pipeline{
             steps{
                 
                 echo 'Going to Deploy App'
-                sh  "docker run-d -p 80:80 --name mywebos engineerwithspecs02/flask-login-app"
+                sh  "docker run -d -p 80:80 --name mywebos engineerwithspecs02/flask-login-app"
                 
                 
             }
