@@ -63,3 +63,6 @@ docker start master
 docker ps
 
 docker pull jinny1/jenkinsslave
+
+
+watch docker ps
