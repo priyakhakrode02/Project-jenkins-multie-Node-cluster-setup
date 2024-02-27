@@ -66,3 +66,12 @@ docker pull jinny1/jenkinsslave
 
 
 watch docker ps
+
+mkdir jenkins-aws-slave
+
+curl -sO http://54.152.218.55:8080/jnlpJars/agent.jar
+
+java -jar agent.jar -url http://54.152.218.55:8080/ -secret 757531bf30ccdedd9e3b3d110163c2c0a2e72889135b9f8b9eca14156cae2d09 -name awsslave -workDir "/jenkins-aws-slave"
+# use & at the end of above command so you can run other commands in terminal using & means you running java command in the background.
+
+ps -aux | grep java 
