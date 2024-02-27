@@ -1,0 +1,18 @@
+pipeline{
+    agent { 
+        
+        label 'awsslave'
+    }
+    stages{
+        stage('Deployment'){
+            steps{
+                
+                echo 'Going to Deploy App'
+                sh  "docker run-d -p 80:80 --name mywebos engineerwithspecs02/flask-login-app"
+                
+                
+            }
+            
+        }
+    }
+}
